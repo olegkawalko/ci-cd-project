@@ -1,6 +1,9 @@
 name: CI
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -59,6 +62,7 @@ jobs:
           push: true
           tags: |
             olegkawalko/pokeshop-check-price:${{ github.sha }}
+            olegkawalko/pokeshop-check-price:latest
 
 
 
