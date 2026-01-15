@@ -11,15 +11,16 @@ PRICE_SELECTOR = "[itemprop='price']"
 DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1443642856664469526/E4akg33wgLqr5RAynAwf5JLkdSliXt4IO60Lh3CB2NMpmYakKGApfMcsHWkuqr4jvb4v"
 MIN_INTERVAL = 15
 MAX_INTERVAL = 150
-STATE_FILE = "last_price.json"
-INITIAL_PRICE = 0.0
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATE_FILE = os.path.join(BASE_DIR, "last_price.json")
+INITIAL_PRICE = "0.0"
 
 def init_last_price():
+    print("Init last price...")
     data = {"price": INITIAL_PRICE}
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False)
-        
+
 def get_current_price():
     headers = {
         "User-Agent": "projekt juugcatm2003@gmail.com"
@@ -85,5 +86,5 @@ def main_loop():
 
 
 if __name__ == "__main__":
-    main_loop()
     init_last_price()
+    main_loop()
