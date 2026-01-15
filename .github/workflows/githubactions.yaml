@@ -35,7 +35,7 @@ jobs:
 
       - name: build_docker_image
         run: |
-          docker build -t price-tracker:latest .
+          docker build -t price-tracker:latest ./src
           echo "Docker image built... "
       - name: run_docker_iamge
         run: |
