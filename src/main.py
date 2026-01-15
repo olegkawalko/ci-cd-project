@@ -13,9 +13,9 @@ MIN_INTERVAL = 15
 MAX_INTERVAL = 150
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATE_FILE = os.path.join(BASE_DIR, "last_price.json")
-INITIAL_PRICE = "0.0"
+INITIAL_PRICE = "0.00"
 
-def init_last_pricee():
+def init_last_price():
     print("Init last price...")
     data = {"price": INITIAL_PRICE}
     with open(STATE_FILE, "w", encoding="utf-8") as f:
@@ -86,5 +86,5 @@ def main_loop():
 
 
 if __name__ == "__main__":
-    init_last_pricee()
+    init_last_price()
     main_loop()
