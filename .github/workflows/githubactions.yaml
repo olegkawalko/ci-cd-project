@@ -1,26 +1,28 @@
-name: ciaction
+name: CI
 
-on: 
+on:
   push:
     branches:
       - ci
+
 jobs:
   tests:
     runs-on: ubuntu-latest
-  steps: 
-    - name: Checkout
-      uses: actions/checkout
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Setup python
-      uses: actions/setup-python3
-      with:
-        python-version: '3.12.3'
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
-    - name: install req.txt
-      run: pip install -r req.txt
-      run: echo "Intallation Passed.."
-      
-    - name: Pytest test
-      run: pytest tests/
-      run: echo "Pytest Passed..."
-  
+      - name: Install requirements
+        run: |
+          pip install -r req.txt
+          echo "Installation Passed..."
+
+      - name: Pytest test
+        run: |
+          pytest tests/
+          echo "Pytest Passed..."
