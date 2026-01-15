@@ -39,6 +39,6 @@ jobs:
           echo "Docker image built... "
       - name: run_docker_iamge
         run: |
-          run: docker run --rm price-tracker:latest python3 -c "import main"
+          docker run --rm price-tracker:latest python3 -c "import main"
           echo "Docker image running... "
 
