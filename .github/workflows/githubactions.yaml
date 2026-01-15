@@ -26,3 +26,19 @@ jobs:
         run: |
           pytest tests/
           echo "Pytest Passed..."
+  build:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: build_docker_image
+        run: |
+          docker build -t price-tracker:latest ./src
+          echo "Docker image built... "
+      - name: run_docker_iamge
+        run: |
+          docker run --rm price-tracker:latest python3 -c "import main"
+          echo "Docker image running... "
+
