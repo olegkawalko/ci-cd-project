@@ -62,7 +62,7 @@ jobs:
           push: true
           tags: |
             olegkawalko/pokeshop-check-price:${{ github.sha }}
-            olegkawalko/pokeshop-check-price::latest
+            olegkawalko/pokeshop-check-price:latest
 
 
 
