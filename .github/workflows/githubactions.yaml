@@ -61,7 +61,7 @@ jobs:
           context: ./src
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_LOGIN }}/${{ github.event.repository.name }}:${{ github.sha }}
+            olegkawalko/${{ github.event.repository.name }}:${{ github.sha }}
 
 
 
