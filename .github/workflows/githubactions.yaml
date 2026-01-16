@@ -37,11 +37,11 @@ jobs:
 
       - name: build_docker_image
         run: |
-          docker build -t pokeshop-check-price:latest ./src
+          docker build -t ${{ github.event.repository.name }}:${{ github.sha }} ./src
           echo "Docker image built... "
       - name: run_docker_iamge test
         run: |
-          docker run --rm pokeshop-check-price:latest python3 -c "import main"
+          docker run --rm ${{ github.event.repository.name }}:${{ github.sha }} python3 -c "import main"
           echo "Docker image running... "
   delivery:
     needs: build
@@ -61,8 +61,7 @@ jobs:
           context: ./src
           push: true
           tags: |
-            olegkawalko/pokeshop-check-price:${{ github.sha }}
-            olegkawalko/pokeshop-check-price:latest
+            ${{ secrets.DOCKERHUB_LOGIN }}/${{ github.event.repository.name }}:${{ github.sha }}
 
 
 
