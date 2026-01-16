@@ -41,7 +41,7 @@ jobs:
           echo "Docker image built... "
       - name: run_docker_iamge test
         run: |
-          docker run --rm ${{ github.event.repository.name }}:${{ github.sha }} python3 -c "import main"
+          docker run ${{ github.event.repository.name }}:${{ github.sha }}
           echo "Docker image running... "
   delivery:
     needs: build
