@@ -10,4 +10,4 @@ COPY last_price.json .
 
 COPY main.py . 
 
-CMD ["python3", "main.py"]
+CMD ["python3", "main.p"]
