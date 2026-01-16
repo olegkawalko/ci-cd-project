@@ -13,7 +13,7 @@ MIN_INTERVAL = 15
 MAX_INTERVAL = 150
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATE_FILE = os.path.join(BASE_DIR, "last_price.json")
-INITIAL_PRICE = "00.0"
+INITIAL_PRICE = "0.0"
 
 def init_last_price():
     print("Init last price...")
