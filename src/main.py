@@ -13,7 +13,7 @@ MIN_INTERVAL = 15
 MAX_INTERVAL = 150
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATE_FILE = os.path.join(BASE_DIR, "last_price.json")
-INITIAL_PRICE = "00.0"
+INITIAL_PRICE = "0.0"
 
 def init_last_price():
     print("Init last price...")
@@ -74,17 +74,16 @@ def main():
     else:
         print(f"Cena bez zmian: {current}")
 
-def main_loop():
-    while True:
-        try:
-            main()
-        except Exception as e:
-            print(f"Błąd: {e}")
-        sleep_time = random.randint(MIN_INTERVAL, MAX_INTERVAL)
-        print(f"Śpię {sleep_time} sekund")
-        time.sleep(sleep_time)
+def main_second():
+    try:
+        main()
+    except Exception as e:
+        print(f"Błąd: {e}")
+    sleep_time = random.randint(MIN_INTERVAL, MAX_INTERVAL)
+    print(f"Śpię {sleep_time} sekund")
+    time.sleep(sleep_time)
 
 
 if __name__ == "__main__":
     init_last_price()
-    main_loop()
+    main_second()
