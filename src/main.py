@@ -74,17 +74,16 @@ def main():
     else:
         print(f"Cena bez zmian: {current}")
 
-def main_loop():
-    while True:
-        try:
-            main()
-        except Exception as e:
-            print(f"Błąd: {e}")
-        sleep_time = random.randint(MIN_INTERVAL, MAX_INTERVAL)
-        print(f"Śpię {sleep_time} sekund")
-        time.sleep(sleep_time)
+def main_second():
+    try:
+        main()
+    except Exception as e:
+        print(f"Błąd: {e}")
+    sleep_time = random.randint(MIN_INTERVAL, MAX_INTERVAL)
+    print(f"Śpię {sleep_time} sekund")
+    time.sleep(sleep_time)
 
 
 if __name__ == "__main__":
     init_last_price()
-    main_loop()
+    main_second()
