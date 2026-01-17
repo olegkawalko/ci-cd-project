@@ -7,7 +7,7 @@ on:
     path-ignore: 
       - 'src/**'
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
     steps:
     - name: test
