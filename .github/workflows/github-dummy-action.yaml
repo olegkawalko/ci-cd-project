@@ -9,4 +9,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    steps: echo "No Test Needed..."
+    steps:
+    - name: test
+      run:  echo "No Test Needed..."
