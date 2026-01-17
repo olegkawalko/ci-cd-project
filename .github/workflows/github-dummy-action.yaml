@@ -1,0 +1,14 @@
+name: CI-dummy
+
+on: 
+  pull_request:
+    branches:
+      - main
+    path-ignore: 
+      - 'src/**'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps: echo "No Test Needed..."
+  
+    - main
